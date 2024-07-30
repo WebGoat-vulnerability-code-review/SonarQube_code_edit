@@ -126,6 +126,7 @@ public class WebSecurityConfig {
   }
 
   @Bean
-  public NoOpPasswordEncoder passwordEncoder() { return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
+  public NoOpPasswordEncoder passwordEncoder() {
+    return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
   }
 }
