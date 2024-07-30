@@ -55,7 +55,6 @@ import org.springframework.web.client.RestTemplate;
 @EnableAutoConfiguration
 public class WebGoat {
 
-  @Autowired private UserRepository userRepository;
 
   @Bean(name = "pluginTargetDirectory")
   public File pluginTargetDirectory(@Value("${webgoat.user.directory}") final String webgoatHome) {
@@ -64,7 +63,7 @@ public class WebGoat {
 
   @Bean
   @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
-  public WebSession webSession() {
+  public WebSession webSession(UserRepository userRepository) {
     WebGoatUser webGoatUser = null;
     Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     if (principal instanceof WebGoatUser) {
