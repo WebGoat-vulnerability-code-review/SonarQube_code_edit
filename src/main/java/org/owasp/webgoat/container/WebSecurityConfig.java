@@ -42,7 +42,8 @@ import org.springframework.security.config.annotation.authentication.configurati
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder.BCryptVersion;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
@@ -55,6 +56,8 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 public class WebSecurityConfig {
 
   private final UserService userDetailsService;
+
+  private static final String LOGIN_URL = "/login";
 
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -76,7 +79,7 @@ public class WebSecurityConfig {
         .formLogin(
             login ->
                 login
-                    .loginPage("/login")
+                    .loginPage(LOGIN_URL)
                     .defaultSuccessUrl("/welcome.mvc", true)
                     .usernameParameter("username")
                     .passwordParameter("password")
@@ -84,7 +87,7 @@ public class WebSecurityConfig {
         .oauth2Login(
             oidc -> {
               oidc.defaultSuccessUrl("/login-oauth.mvc");
-              oidc.loginPage("/login");
+              oidc.loginPage(LOGIN_URL);
             })
         .logout(logout -> logout.deleteCookies("JSESSIONID").invalidateHttpSession(true))
         .cors(cors -> cors.configurationSource(corsConfigurationSource()))
@@ -92,7 +95,7 @@ public class WebSecurityConfig {
         .headers(headers -> headers.disable())
         .exceptionHandling(
             handling ->
-                handling.authenticationEntryPoint(new AjaxAuthenticationEntryPoint("/login")))
+                handling.authenticationEntryPoint(new AjaxAuthenticationEntryPoint(LOGIN_URL)))
         .build();
   }
 
@@ -124,7 +127,7 @@ public class WebSecurityConfig {
   }
 
   @Bean
-  public NoOpPasswordEncoder passwordEncoder() {
-    return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
-  }
+  public static BCryptPasswordEncoder passwordEncoder() {
+    BCryptPasswordEncoder bCryptPasswordEncoder = (BCryptPasswordEncoder) new BCryptVersion();
+    return bCryptPasswordEncoder;}
 }
