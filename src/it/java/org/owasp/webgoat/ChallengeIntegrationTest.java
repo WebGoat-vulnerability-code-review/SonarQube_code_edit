@@ -52,7 +52,7 @@ public class ChallengeIntegrationTest extends IntegrationTest {
     params.put("flag", flag);
     checkAssignment(url("challenge/flag"), params, true);
 
-    // checkResults("/challenge/1");
+    checkResults("/challenge/1");
 
     List<String> capturefFlags =
         RestAssured.given()
@@ -65,7 +65,7 @@ public class ChallengeIntegrationTest extends IntegrationTest {
             .extract()
             .jsonPath()
             .get("find { it.username == \"" + this.getUser() + "\" }.flagsCaptured");
-    // assertTrue(capturefFlags.contains("Admin lost password"));
+    assertTrue(capturefFlags.contains("Admin lost password"));
   }
 
   @Test
