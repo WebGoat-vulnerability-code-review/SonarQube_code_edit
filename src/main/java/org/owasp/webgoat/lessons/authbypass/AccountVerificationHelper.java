@@ -57,13 +57,9 @@ public class AccountVerificationHelper {
     }
 
     if ((submittedAnswers.containsKey(SECQ0)
-            && submittedAnswers
-                .get(SECQ0)
-                .equals(secQuestionStore.get(VERIFYUSERID).get(SECQ0)))
+            && submittedAnswers.get(SECQ0).equals(secQuestionStore.get(VERIFYUSERID).get(SECQ0)))
         && (submittedAnswers.containsKey(SECQ1)
-            && submittedAnswers
-                .get(SECQ1)
-                .equals(secQuestionStore.get(VERIFYUSERID).get(SECQ1)))) {
+            && submittedAnswers.get(SECQ1).equals(secQuestionStore.get(VERIFYUSERID).get(SECQ1)))) {
       likely = true;
     } else {
       likely = false;
@@ -81,16 +77,12 @@ public class AccountVerificationHelper {
     }
 
     if (submittedQuestions.containsKey(SECQ0)
-        && !submittedQuestions
-            .get(SECQ0)
-            .equals(secQuestionStore.get(VERIFYUSERID).get(SECQ0))) {
+        && !submittedQuestions.get(SECQ0).equals(secQuestionStore.get(VERIFYUSERID).get(SECQ0))) {
       return false;
     }
 
     if (submittedQuestions.containsKey(SECQ1)
-        && !submittedQuestions
-            .get(SECQ1)
-            .equals(secQuestionStore.get(VERIFYUSERID).get(SECQ1))) {
+        && !submittedQuestions.get(SECQ1).equals(secQuestionStore.get(VERIFYUSERID).get(SECQ1))) {
       return false;
     }
 
