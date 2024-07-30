@@ -29,18 +29,20 @@ import java.util.Map;
 public class AccountVerificationHelper {
 
   // simulating database storage of verification credentials
-  private static final Integer verifyUserId = 1223445;
+  private static final Integer VERIFYUSERID = 1223445;
   private static final Map<String, String> userSecQuestions = new HashMap<>();
+  private static final String SECQ0 = "secQuestion0";
+  private static final String SECQ1 = "secQuestion1";
 
   static {
-    userSecQuestions.put("secQuestion0", "Dr. Watson");
-    userSecQuestions.put("secQuestion1", "Baker Street");
+    userSecQuestions.put(SECQ0, "Dr. Watson");
+    userSecQuestions.put(SECQ1, "Baker Street");
   }
 
   private static final Map<Integer, Map> secQuestionStore = new HashMap<>();
 
   static {
-    secQuestionStore.put(verifyUserId, userSecQuestions);
+    secQuestionStore.put(VERIFYUSERID, userSecQuestions);
   }
 
   // end 'data store set up'
@@ -50,18 +52,18 @@ public class AccountVerificationHelper {
   public boolean didUserLikelylCheat(HashMap<String, String> submittedAnswers) {
     boolean likely = false;
 
-    if (submittedAnswers.size() == secQuestionStore.get(verifyUserId).size()) {
+    if (submittedAnswers.size() == secQuestionStore.get(VERIFYUSERID).size()) {
       likely = true;
     }
 
-    if ((submittedAnswers.containsKey("secQuestion0")
+    if ((submittedAnswers.containsKey(SECQ0)
             && submittedAnswers
-                .get("secQuestion0")
-                .equals(secQuestionStore.get(verifyUserId).get("secQuestion0")))
-        && (submittedAnswers.containsKey("secQuestion1")
+                .get(SECQ0)
+                .equals(secQuestionStore.get(VERIFYUSERID).get(SECQ0)))
+        && (submittedAnswers.containsKey(SECQ1)
             && submittedAnswers
-                .get("secQuestion1")
-                .equals(secQuestionStore.get(verifyUserId).get("secQuestion1")))) {
+                .get(SECQ1)
+                .equals(secQuestionStore.get(VERIFYUSERID).get(SECQ1)))) {
       likely = true;
     } else {
       likely = false;
@@ -74,21 +76,21 @@ public class AccountVerificationHelper {
 
   public boolean verifyAccount(Integer userId, HashMap<String, String> submittedQuestions) {
     // short circuit if no questions are submitted
-    if (submittedQuestions.entrySet().size() != secQuestionStore.get(verifyUserId).size()) {
+    if (submittedQuestions.entrySet().size() != secQuestionStore.get(VERIFYUSERID).size()) {
       return false;
     }
 
-    if (submittedQuestions.containsKey("secQuestion0")
+    if (submittedQuestions.containsKey(SECQ0)
         && !submittedQuestions
-            .get("secQuestion0")
-            .equals(secQuestionStore.get(verifyUserId).get("secQuestion0"))) {
+            .get(SECQ0)
+            .equals(secQuestionStore.get(VERIFYUSERID).get(SECQ0))) {
       return false;
     }
 
-    if (submittedQuestions.containsKey("secQuestion1")
+    if (submittedQuestions.containsKey(SECQ1)
         && !submittedQuestions
-            .get("secQuestion1")
-            .equals(secQuestionStore.get(verifyUserId).get("secQuestion1"))) {
+            .get(SECQ1)
+            .equals(secQuestionStore.get(VERIFYUSERID).get(SECQ1))) {
       return false;
     }
 
