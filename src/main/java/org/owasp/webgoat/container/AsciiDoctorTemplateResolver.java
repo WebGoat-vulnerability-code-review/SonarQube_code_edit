@@ -72,7 +72,7 @@ public class AsciiDoctorTemplateResolver extends FileTemplateResolver {
   private final Language language;
   private final ResourceLoader resourceLoader;
 
-  private static final String classPath = "classpath:/";
+  private static final String CLASSPATH = "classpath:/";
 
   public AsciiDoctorTemplateResolver(Language language, ResourceLoader resourceLoader) {
     this.resourceLoader = resourceLoader;
@@ -113,12 +113,12 @@ public class AsciiDoctorTemplateResolver extends FileTemplateResolver {
     String computedResourceName =
         computeResourceName(templateName, language.getLocale().getLanguage());
 
-    if (resourceLoader.getResource(classPath + computedResourceName).isReadable() /*isFile()*/) {
+    if (resourceLoader.getResource(CLASSPATH + computedResourceName).isReadable() /*isFile()*/) {
       log.debug("localized file exists");
-      return resourceLoader.getResource(classPath + computedResourceName).getInputStream();
+      return resourceLoader.getResource(CLASSPATH + computedResourceName).getInputStream();
     } else {
       log.debug("using english template");
-      return resourceLoader.getResource(classPath + templateName).getInputStream();
+      return resourceLoader.getResource(CLASSPATH + templateName).getInputStream();
     }
   }
 
@@ -132,7 +132,7 @@ public class AsciiDoctorTemplateResolver extends FileTemplateResolver {
     log.debug("computed local file name: {}", computedResourceName);
     log.debug(
         "file exists: {}",
-        resourceLoader.getResource(classPath + computedResourceName).isReadable());
+        resourceLoader.getResource(CLASSPATH + computedResourceName).isReadable());
     return computedResourceName;
   }
 
