@@ -131,7 +131,8 @@ public class AsciiDoctorTemplateResolver extends FileTemplateResolver {
     }
     String pathToComputedResourceName = "classpath:/" + computedResourceName;
     log.debug("computed local file name: {}", computedResourceName);
-    log.debug("file exists: {}", resourceLoader.getResource(pathToComputedResourceName).isReadable());
+    log.debug(
+            "file exists: {}", resourceLoader.getResource(pathToComputedResourceName).isReadable());
     return computedResourceName;
   }
 
