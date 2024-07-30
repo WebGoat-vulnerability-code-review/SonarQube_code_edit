@@ -52,7 +52,7 @@ public class ChallengeIntegrationTest extends IntegrationTest {
     params.put("flag", flag);
     checkAssignment(url("challenge/flag"), params, true);
 
-    //checkResults("/challenge/1");
+    // checkResults("/challenge/1");
 
     List<String> capturefFlags =
         RestAssured.given()

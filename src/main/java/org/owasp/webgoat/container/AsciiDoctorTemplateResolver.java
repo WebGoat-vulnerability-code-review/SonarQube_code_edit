@@ -63,7 +63,6 @@ import org.thymeleaf.templateresource.StringTemplateResource;
  * <div th:replace="~{doc:AccessControlMatrix_plan.adoc}"></div>
  * </code>
  */
-
 @Slf4j
 public class AsciiDoctorTemplateResolver extends FileTemplateResolver {
 
@@ -132,7 +131,8 @@ public class AsciiDoctorTemplateResolver extends FileTemplateResolver {
     }
     log.debug("computed local file name: {}", computedResourceName);
     log.debug(
-        "file exists: {}", resourceLoader.getResource(classPath + computedResourceName).isReadable());
+        "file exists: {}",
+        resourceLoader.getResource(classPath + computedResourceName).isReadable());
     return computedResourceName;
   }
 
