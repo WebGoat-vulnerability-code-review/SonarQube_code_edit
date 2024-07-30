@@ -110,14 +110,17 @@ public class AsciiDoctorTemplateResolver extends FileTemplateResolver {
     log.debug("locale: {}", language.getLocale().getLanguage());
     String computedResourceName =
         computeResourceName(templateName, language.getLocale().getLanguage());
+    String pathToComputedResourceName = "classpath:/" + computedResourceName;
+    String pathToTemplateName = "classpath:/" + templateName;
+
     if (resourceLoader
-        .getResource("classpath:/" + computedResourceName)
+        .getResource(pathToComputedResourceName)
         .isReadable() /*isFile()*/) {
       log.debug("localized file exists");
-      return resourceLoader.getResource("classpath:/" + computedResourceName).getInputStream();
+      return resourceLoader.getResource(pathToComputedResourceName).getInputStream();
     } else {
       log.debug("using english template");
-      return resourceLoader.getResource("classpath:/" + templateName).getInputStream();
+      return resourceLoader.getResource(pathToTemplateName).getInputStream();
     }
   }
 
@@ -128,10 +131,11 @@ public class AsciiDoctorTemplateResolver extends FileTemplateResolver {
     } else {
       computedResourceName = resourceName.replace(".adoc", "_".concat(language).concat(".adoc"));
     }
+    String pathToComputedResourceName = "classpath:/" + computedResourceName;
     log.debug("computed local file name: {}", computedResourceName);
     log.debug(
         "file exists: {}",
-        resourceLoader.getResource("classpath:/" + computedResourceName).isReadable());
+        resourceLoader.getResource(pathToComputedResourceName).isReadable());
     return computedResourceName;
   }
 
