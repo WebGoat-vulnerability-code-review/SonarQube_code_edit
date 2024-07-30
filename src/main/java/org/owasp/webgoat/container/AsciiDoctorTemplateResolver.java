@@ -63,6 +63,7 @@ import org.thymeleaf.templateresource.StringTemplateResource;
  * <div th:replace="~{doc:AccessControlMatrix_plan.adoc}"></div>
  * </code>
  */
+
 @Slf4j
 public class AsciiDoctorTemplateResolver extends FileTemplateResolver {
 
@@ -71,6 +72,8 @@ public class AsciiDoctorTemplateResolver extends FileTemplateResolver {
 
   private final Language language;
   private final ResourceLoader resourceLoader;
+
+  private static final String classPath = "classpath:/";
 
   public AsciiDoctorTemplateResolver(Language language, ResourceLoader resourceLoader) {
     this.resourceLoader = resourceLoader;
@@ -110,15 +113,13 @@ public class AsciiDoctorTemplateResolver extends FileTemplateResolver {
     log.debug("locale: {}", language.getLocale().getLanguage());
     String computedResourceName =
         computeResourceName(templateName, language.getLocale().getLanguage());
-    String pathToComputedResourceName = "classpath:/" + computedResourceName;
-    String pathToTemplateName = "classpath:/" + templateName;
 
-    if (resourceLoader.getResource(pathToComputedResourceName).isReadable() /*isFile()*/) {
+    if (resourceLoader.getResource(classPath + computedResourceName).isReadable() /*isFile()*/) {
       log.debug("localized file exists");
-      return resourceLoader.getResource(pathToComputedResourceName).getInputStream();
+      return resourceLoader.getResource(classPath + computedResourceName).getInputStream();
     } else {
       log.debug("using english template");
-      return resourceLoader.getResource(pathToTemplateName).getInputStream();
+      return resourceLoader.getResource(classPath + templateName).getInputStream();
     }
   }
 
@@ -129,10 +130,9 @@ public class AsciiDoctorTemplateResolver extends FileTemplateResolver {
     } else {
       computedResourceName = resourceName.replace(".adoc", "_".concat(language).concat(".adoc"));
     }
-    String pathToComputedResourceName = "classpath:/" + computedResourceName;
     log.debug("computed local file name: {}", computedResourceName);
     log.debug(
-        "file exists: {}", resourceLoader.getResource(pathToComputedResourceName).isReadable());
+        "file exists: {}", resourceLoader.getResource(classPath + computedResourceName).isReadable());
     return computedResourceName;
   }
 
