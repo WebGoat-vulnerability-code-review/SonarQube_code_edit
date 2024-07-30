@@ -36,7 +36,6 @@ import org.owasp.webgoat.container.session.UserSessionData;
 import org.owasp.webgoat.container.session.WebSession;
 import org.owasp.webgoat.container.users.UserRepository;
 import org.owasp.webgoat.container.users.WebGoatUser;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
@@ -54,7 +53,6 @@ import org.springframework.web.client.RestTemplate;
 @PropertySource("classpath:application-webgoat.properties")
 @EnableAutoConfiguration
 public class WebGoat {
-
 
   @Bean(name = "pluginTargetDirectory")
   public File pluginTargetDirectory(@Value("${webgoat.user.directory}") final String webgoatHome) {
