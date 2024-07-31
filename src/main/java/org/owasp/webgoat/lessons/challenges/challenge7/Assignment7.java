@@ -5,6 +5,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.LocalDateTime;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.text.RandomStringGenerator;
 import org.owasp.webgoat.container.assignments.AssignmentEndpoint;
 import org.owasp.webgoat.container.assignments.AttackResult;
 import org.owasp.webgoat.lessons.challenges.Email;
@@ -31,7 +32,14 @@ import org.springframework.web.client.RestTemplate;
 @Slf4j
 public class Assignment7 extends AssignmentEndpoint {
 
-  public static final String ADMIN_PASSWORD_LINK = "375afe1104f4a487a73823c50a9292a2";
+  private static final String CharNum_Set = "abcdefghijklmnopqrstuvwxyz0123456789";
+  static RandomStringGenerator pwdGenerator =
+          new RandomStringGenerator.Builder().selectFrom(CharNum_Set.toCharArray()).build();
+
+  static String newPass = pwdGenerator.toString();
+
+  public static final String ADMIN_PASSWORD_LINK = newPass;
+  // public static final String ADMIN_PASSWORD_LINK = "375afe1104f4a487a73823c50a9292a2";
 
   private static final String TEMPLATE =
       "Hi, you requested a password reset link, please use this <a target='_blank'"
