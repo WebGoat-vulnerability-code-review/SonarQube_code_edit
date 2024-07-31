@@ -32,9 +32,9 @@ import org.springframework.web.client.RestTemplate;
 @Slf4j
 public class Assignment7 extends AssignmentEndpoint {
 
-  private static final String CharNum_Set = "abcdefghijklmnopqrstuvwxyz0123456789";
+  private static final String CHARNUM_SET = "abcdefghijklmnopqrstuvwxyz0123456789";
   static RandomStringGenerator pwdGenerator =
-      new RandomStringGenerator.Builder().selectFrom(CharNum_Set.toCharArray()).build();
+      new RandomStringGenerator.Builder().selectFrom(CHARNUM_SET.toCharArray()).build();
 
   static String newPass = pwdGenerator.toString();
 
