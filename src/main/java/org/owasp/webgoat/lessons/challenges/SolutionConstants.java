@@ -33,10 +33,11 @@ import org.apache.commons.text.RandomStringGenerator;
 public class SolutionConstants {
 
   // TODO should be random generated when starting the server
-  static RandomStringGenerator pwdGenerator = new RandomStringGenerator.Builder().withinRange(33, 126).build();
+  static RandomStringGenerator pwdGenerator =
+          new RandomStringGenerator.Builder().withinRange(33, 126).build();
 
   static String newPass = pwdGenerator.toString();
 
   public static final String PASSWORD = newPass;
-          //"!!webgoat_admin_1234!!"; 33 - 126
+  // "!!webgoat_admin_1234!!"; 33 - 126
 }
