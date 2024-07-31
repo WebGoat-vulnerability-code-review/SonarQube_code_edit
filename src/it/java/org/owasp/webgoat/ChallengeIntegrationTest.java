@@ -1,6 +1,7 @@
 package org.owasp.webgoat;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.owasp.webgoat.lessons.challenges.SolutionConstants.PASSWORD;
 
 import io.restassured.RestAssured;
 import java.util.Arrays;
@@ -32,9 +33,9 @@ public class ChallengeIntegrationTest extends IntegrationTest {
     Map<String, Object> params = new HashMap<>();
     params.clear();
     params.put("username", "admin");
-    params.put("password", "!!webgoat_admin_1234!!".replace("1234", pincode));
+    params.put("password", PASSWORD.replace("1234", pincode));
 
-    // checkAssignment(url("challenge/1"), params, true);
+    checkAssignment(url("challenge/1"), params, true);
     String result =
         RestAssured.given()
             .when()
