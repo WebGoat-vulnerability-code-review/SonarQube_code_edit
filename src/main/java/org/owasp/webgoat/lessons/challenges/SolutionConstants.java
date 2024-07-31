@@ -24,9 +24,6 @@ package org.owasp.webgoat.lessons.challenges;
 
 import org.apache.commons.text.RandomStringGenerator;
 
-import java.util.*;
-import java.nio.charset.*;
-
 /**
  * Interface with constants so we can easily change the flags
  *
