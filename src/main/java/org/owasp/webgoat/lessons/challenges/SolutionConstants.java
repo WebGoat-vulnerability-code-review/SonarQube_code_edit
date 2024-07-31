@@ -22,6 +22,11 @@
 
 package org.owasp.webgoat.lessons.challenges;
 
+import org.apache.commons.text.RandomStringGenerator;
+
+import java.util.*;
+import java.nio.charset.*;
+
 /**
  * Interface with constants so we can easily change the flags
  *
@@ -31,5 +36,10 @@ package org.owasp.webgoat.lessons.challenges;
 public class SolutionConstants {
 
   // TODO should be random generated when starting the server
-  public static final String PASSWORD = "!!webgoat_admin_1234!!";
+  static RandomStringGenerator pwdGenerator = new RandomStringGenerator.Builder().withinRange(33, 126).build();
+
+  static String newPass = pwdGenerator.toString();
+
+  public static final String PASSWORD = newPass;
+          //"!!webgoat_admin_1234!!"; 33 - 126
 }
