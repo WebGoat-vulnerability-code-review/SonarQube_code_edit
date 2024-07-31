@@ -2,7 +2,7 @@ package org.owasp.webgoat;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.owasp.webgoat.lessons.challenges.SolutionConstants.PASSWORD;
-import static org.owasp.webgoat.lessons.challenges.challenge7.Assignment7.ADMIN_PASSWORD_LINK;
+// import static org.owasp.webgoat.lessons.challenges.challenge7.Assignment7.ADMIN_PASSWORD_LINK;
 
 import io.restassured.RestAssured;
 import java.util.Arrays;
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.http.HttpStatus;
+// import org.springframework.http.HttpStatus;
 
 public class ChallengeIntegrationTest extends IntegrationTest {
 
