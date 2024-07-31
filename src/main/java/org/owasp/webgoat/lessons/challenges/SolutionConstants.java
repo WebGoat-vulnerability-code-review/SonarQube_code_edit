@@ -34,7 +34,7 @@ public class SolutionConstants {
 
   // TODO should be random generated when starting the server
   static RandomStringGenerator pwdGenerator =
-          new RandomStringGenerator.Builder().withinRange(33, 126).build();
+      new RandomStringGenerator.Builder().withinRange(33, 126).build();
 
   static String newPass = pwdGenerator.toString();
 
