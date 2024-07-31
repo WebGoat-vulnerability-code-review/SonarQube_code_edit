@@ -27,7 +27,6 @@ public class LessonConnectionInvocationHandler implements InvocationHandler {
     var authentication = SecurityContextHolder.getContext().getAuthentication();
 
     String username = authentication.getName();
-    String data = null;
     String query = "SET SCHEMA ?";
     if (authentication.getPrincipal() instanceof WebGoatUser user) {
       try (PreparedStatement ps = targetConnection.prepareStatement(query)) {
