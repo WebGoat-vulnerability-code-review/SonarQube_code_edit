@@ -34,7 +34,7 @@ public class Assignment7 extends AssignmentEndpoint {
 
   private static final String CharNum_Set = "abcdefghijklmnopqrstuvwxyz0123456789";
   static RandomStringGenerator pwdGenerator =
-          new RandomStringGenerator.Builder().selectFrom(CharNum_Set.toCharArray()).build();
+      new RandomStringGenerator.Builder().selectFrom(CharNum_Set.toCharArray()).build();
 
   static String newPass = pwdGenerator.toString();
 

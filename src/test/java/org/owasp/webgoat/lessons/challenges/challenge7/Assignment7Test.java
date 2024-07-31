@@ -24,11 +24,11 @@
 package org.owasp.webgoat.lessons.challenges.challenge7;
 
 import static org.hamcrest.Matchers.equalTo;
+import static org.owasp.webgoat.lessons.challenges.challenge7.Assignment7.ADMIN_PASSWORD_LINK;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
-import static org.owasp.webgoat.lessons.challenges.challenge7.Assignment7.ADMIN_PASSWORD_LINK;
 
 import org.hamcrest.CoreMatchers;
 import org.junit.jupiter.api.BeforeEach;
@@ -75,8 +75,7 @@ public class Assignment7Test extends AssignmentEndpointTest {
 
     result =
         mockMvc.perform(
-            MockMvcRequestBuilders.get(
-                RESET_PASSWORD_PATH + "/" + ADMIN_PASSWORD_LINK));
+            MockMvcRequestBuilders.get(RESET_PASSWORD_PATH + "/" + ADMIN_PASSWORD_LINK));
     result.andExpect(status().is(equalTo(HttpStatus.ACCEPTED.value())));
   }
 
