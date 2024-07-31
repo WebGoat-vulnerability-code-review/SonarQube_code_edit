@@ -1,4 +1,4 @@
-/* package org.owasp.webgoat;
+package org.owasp.webgoat;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -75,4 +75,4 @@ public class SqlInjectionLessonIntegrationTest extends IntegrationTest {
 
     checkResults("/SqlInjection/");
   }
-} */
+}
