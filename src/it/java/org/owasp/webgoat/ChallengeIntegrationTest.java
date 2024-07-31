@@ -2,6 +2,7 @@ package org.owasp.webgoat;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.owasp.webgoat.lessons.challenges.SolutionConstants.PASSWORD;
+import static org.owasp.webgoat.lessons.challenges.challenge7.Assignment7.ADMIN_PASSWORD_LINK;
 
 import io.restassured.RestAssured;
 import java.util.Arrays;
@@ -159,7 +160,7 @@ public class ChallengeIntegrationTest extends IntegrationTest {
             .when()
             .relaxedHTTPSValidation()
             .cookie("JSESSIONID", getWebGoatCookie())
-            .get(url("challenge/7/reset-password/{link}"), "375afe1104f4a487a73823c50a9292a2")
+            .get(url("challenge/7/reset-password/{link}"), ADMIN_PASSWORD_LINK)
             .then()
             .statusCode(HttpStatus.ACCEPTED.value())
             .extract()
