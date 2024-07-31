@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+
 // import org.springframework.http.HttpStatus;
 
 public class ChallengeIntegrationTest extends IntegrationTest {
