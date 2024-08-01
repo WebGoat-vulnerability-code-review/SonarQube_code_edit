@@ -62,16 +62,13 @@ public class SecurePasswordsAssignment extends AssignmentEndpoint {
             + "/4 </div>");
     if (strength.getScore() <= 1) {
       output.append(
-          "<div style=\"background-color:red;width: 200px;border-radius: 12px;float:"
-              + NBSP);
+          "<div style=\"background-color:red;width: 200px;border-radius: 12px;float:" + NBSP);
     } else if (strength.getScore() <= 3) {
       output.append(
-          "<div style=\"background-color:orange;width: 200px;border-radius: 12px;float:"
-              + NBSP);
+          "<div style=\"background-color:orange;width: 200px;border-radius: 12px;float:" + NBSP);
     } else {
       output.append(
-          "<div style=\"background-color:green;width: 200px;border-radius: 12px;float:"
-              + NBSP);
+          "<div style=\"background-color:green;width: 200px;border-radius: 12px;float:" + NBSP);
     }
     output.append(
         "<b>Estimated cracking time: </b>"
