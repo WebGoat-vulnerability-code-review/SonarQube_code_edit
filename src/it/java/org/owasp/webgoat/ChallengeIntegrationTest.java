@@ -1,6 +1,5 @@
 package org.owasp.webgoat;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.owasp.webgoat.lessons.challenges.SolutionConstants.PASSWORD;
 // import static org.owasp.webgoat.lessons.challenges.challenge7.Assignment7.ADMIN_PASSWORD_LINK;
 
