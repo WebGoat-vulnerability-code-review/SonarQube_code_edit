@@ -14,8 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ImageServlet {
 
-  public static final int PINCODE = new Random().nextInt(10000);
-  public static final int RANDNUM = PINCODE;
+  public static final int PINCODE;
+
+  static {
+    PINCODE = new Random().nextInt(10000);
+  }
 
   @RequestMapping(
       method = {GET, POST},
@@ -28,7 +31,7 @@ public class ImageServlet {
             .getInputStream()
             .readAllBytes();
 
-    String pincode = String.format("%04d", RANDNUM);
+    String pincode = String.format("%04d", PINCODE);
 
     in[81216] = (byte) pincode.charAt(0);
     in[81217] = (byte) pincode.charAt(1);
