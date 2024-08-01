@@ -56,7 +56,7 @@ public class NetworkLesson extends AssignmentEndpoint {
 
   @PostMapping(path = "/ChromeDevTools/network", params = "networkNum")
   @ResponseBody
-  public ResponseEntity<?> ok(@RequestParam String networkNum) {
+  public ResponseEntity ok(@RequestParam String networkNum) {
     return ResponseEntity.ok().build();
   }
 }
