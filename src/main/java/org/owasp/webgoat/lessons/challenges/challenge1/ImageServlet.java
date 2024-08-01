@@ -21,6 +21,7 @@ public class ImageServlet {
   static {
     RANDNUM = RANDOM.nextInt(10000);
   }
+
   static {
     PINCODE = RANDOM.nextInt(10000);
   }
