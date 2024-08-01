@@ -18,7 +18,7 @@ public class SqlOnlyInputValidationTest extends SqlLessonTest {
             MockMvcRequestBuilders.post("/SqlOnlyInputValidation/attack")
                 .param(
                     "userid_sql_only_input_validation",
-                  "Smith';SELECT/**/*/**/from/**/user_system_data;--"))
+                "Smith';SELECT/**/*/**/from/**/user_system_data;--"))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.lessonCompleted", is(true)))
         .andExpect(jsonPath("$.feedback", containsString("passW0rD")));
