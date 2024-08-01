@@ -8,7 +8,7 @@ public class SqlInjectionLessonIntegrationTest extends IntegrationTest {
 
   public static final String sql_2 = "select department from employees where last_name='Franco'";
   public static final String sql_3 =
-      "update employees set department='Sales' where last_name='Barnett'";
+          "update employees set department='Sales' where last_name='Barnett'";
   public static final String sql_4_drop = "alter table employees drop column phone";
   public static final String sql_4_add = "alter table employees add column phone varchar(20)";
   public static final String sql_5 = "grant select on grant_rights to unauthorized_user";
@@ -23,7 +23,7 @@ public class SqlInjectionLessonIntegrationTest extends IntegrationTest {
 
   public static final String sql_12_a = "Smith";
   public static final String sql_12_b =
-      "3SL99A' ; update employees set salary= '100000' where last_name='Smith";
+          "3SL99A' ; update employees set salary= '100000' where last_name='Smith";
 
   public static final String sql_13 = "%update% '; drop table access_log ; --'";
 
@@ -75,4 +75,5 @@ public class SqlInjectionLessonIntegrationTest extends IntegrationTest {
 
     checkResults("/SqlInjection/");
   }
+
 }
