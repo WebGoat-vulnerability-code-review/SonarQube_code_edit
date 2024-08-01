@@ -24,6 +24,21 @@ public class LessonConnectionInvocationHandler implements InvocationHandler {
   @Override
   public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
     var authentication = SecurityContextHolder.getContext().getAuthentication();
+    if (authentication != null && authentication.getPrincipal() instanceof WebGoatUser user) {
+      try (var statement = targetConnection.createStatement()) {
+        statement.execute("SET SCHEMA \"" + user.getUsername() + "\"");
+      }
+    }
+    try {
+      return method.invoke(targetConnection, args);
+    } catch (InvocationTargetException e) {
+      throw e.getTargetException();
+    }
+  }
+
+  /*@Override
+  public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+    var authentication = SecurityContextHolder.getContext().getAuthentication();
 
     String username = authentication.getName();
     String query = "SET SCHEMA  ? ";
@@ -38,5 +53,5 @@ public class LessonConnectionInvocationHandler implements InvocationHandler {
     } catch (InvocationTargetException e) {
       throw e.getTargetException();
     }
-  }
+  } */
 }
