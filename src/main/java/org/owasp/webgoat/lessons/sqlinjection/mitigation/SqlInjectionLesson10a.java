@@ -20,7 +20,7 @@
  * Source for this application is maintained at https://github.com/WebGoat/WebGoat, a repository for free software projects.
  */
 
-package org.owasp.webgoat.lessons.sqlinjection.mitigation;
+/* package org.owasp.webgoat.lessons.sqlinjection.mitigation;
 
 import lombok.extern.slf4j.Slf4j;
 import org.owasp.webgoat.container.assignments.AssignmentEndpoint;
@@ -67,4 +67,4 @@ public class SqlInjectionLesson10a extends AssignmentEndpoint {
     }
     return failed(this).build();
   }
-}
+} */

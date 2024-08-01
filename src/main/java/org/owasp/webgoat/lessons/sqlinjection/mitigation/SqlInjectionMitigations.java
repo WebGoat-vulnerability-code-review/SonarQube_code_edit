@@ -20,7 +20,7 @@
  * Source for this application is maintained at https://github.com/WebGoat/WebGoat, a repository for free software projects.
  */
 
-package org.owasp.webgoat.lessons.sqlinjection.mitigation;
+/* package org.owasp.webgoat.lessons.sqlinjection.mitigation;
 
 import org.owasp.webgoat.container.lessons.Category;
 import org.owasp.webgoat.container.lessons.Lesson;
@@ -37,4 +37,4 @@ public class SqlInjectionMitigations extends Lesson {
   public String getTitle() {
     return "3.sql.mitigation.title";
   }
-}
+} */

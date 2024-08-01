@@ -20,7 +20,7 @@
  * Source for this application is maintained at https://github.com/WebGoat/WebGoat, a repository for free software projects.
  */
 
-package org.owasp.webgoat.lessons.sqlinjection.mitigation;
+/* package org.owasp.webgoat.lessons.sqlinjection.mitigation;
 
 import java.io.IOException;
 import java.net.URI;
@@ -151,4 +151,4 @@ public class SqlInjectionLesson10b extends AssignmentEndpoint {
     if (m.find()) return true;
     else return false;
   }
-}
+} */
