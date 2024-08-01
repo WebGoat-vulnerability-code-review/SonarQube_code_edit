@@ -35,7 +35,7 @@ public class Assignment8 extends AssignmentEndpoint {
 
   @GetMapping(value = "/challenge/8/vote/{stars}", produces = MediaType.APPLICATION_JSON_VALUE)
   @ResponseBody
-  public ResponseEntity<?> vote(
+  public ResponseEntity vote(
       @PathVariable(value = "stars") int nrOfStars, HttpServletRequest request) {
     // Simple implementation of VERB Based Authentication
     String msg = "";
