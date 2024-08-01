@@ -20,7 +20,7 @@
  * Source for this application is maintained at https://github.com/WebGoat/WebGoat, a repository for free software projects.
  */
 
-package org.owasp.webgoat.lessons.sqlinjection.advanced;
+/* package org.owasp.webgoat.lessons.sqlinjection.advanced;
 
 import org.owasp.webgoat.container.LessonDataSource;
 import org.owasp.webgoat.container.assignments.AssignmentEndpoint;
@@ -68,4 +68,4 @@ public class SqlInjectionChallengeLogin extends AssignmentEndpoint {
       }
     }
   }
-}
+} */

@@ -20,7 +20,7 @@
  * Source for this application is maintained at https://github.com/WebGoat/WebGoat, a repository for free software projects.
  */
 
-package org.owasp.webgoat.lessons.sqlinjection.introduction;
+/* package org.owasp.webgoat.lessons.sqlinjection.introduction;
 
 import static org.hsqldb.jdbc.JDBCResultSet.CONCUR_UPDATABLE;
 import static org.hsqldb.jdbc.JDBCResultSet.TYPE_SCROLL_SENSITIVE;
@@ -133,4 +133,4 @@ public class SqlInjectionLesson9 extends AssignmentEndpoint {
     Statement statement = connection.createStatement(TYPE_SCROLL_SENSITIVE, CONCUR_UPDATABLE);
     return statement.executeQuery(query);
   }
-}
+} */

@@ -5,7 +5,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 import org.owasp.webgoat.container.users.WebGoatUser;
 import org.springframework.security.core.context.SecurityContextHolder;

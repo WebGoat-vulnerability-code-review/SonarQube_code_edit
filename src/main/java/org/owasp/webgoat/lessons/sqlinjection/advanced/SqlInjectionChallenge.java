@@ -20,7 +20,7 @@
  * Source for this application is maintained at https://github.com/WebGoat/WebGoat, a repository for free software projects.
  */
 
-package org.owasp.webgoat.lessons.sqlinjection.advanced;
+/* package org.owasp.webgoat.lessons.sqlinjection.advanced;
 
 import java.sql.*;
 import lombok.extern.slf4j.Slf4j;
@@ -32,13 +32,13 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RestController; */
 
-/**
+/*
  * @author nbaars
  * @since 4/8/17.
  */
-@RestController
+/* @RestController
 @AssignmentHints(
     value = {"SqlInjectionChallenge1", "SqlInjectionChallenge2", "SqlInjectionChallenge3"})
 @Slf4j
@@ -101,4 +101,4 @@ public class SqlInjectionChallenge extends AssignmentEndpoint {
     }
     return null;
   }
-}
+} */

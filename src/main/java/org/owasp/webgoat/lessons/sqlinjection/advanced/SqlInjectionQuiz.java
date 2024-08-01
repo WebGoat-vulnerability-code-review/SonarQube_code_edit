@@ -20,7 +20,7 @@
  * Source for this application is maintained at https://github.com/WebGoat/WebGoat, a repository for free software projects.
  */
 
-package org.owasp.webgoat.lessons.sqlinjection.advanced;
+/* package org.owasp.webgoat.lessons.sqlinjection.advanced;
 
 import java.io.IOException;
 import org.owasp.webgoat.container.assignments.AssignmentEndpoint;
@@ -29,14 +29,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RestController; */
 
-/**
+/*
  * add a question: 1. Append new question to JSON string 2. add right solution to solutions array 3.
  * add Request param with name of question to method head For a more detailed description how to
  * implement the quiz go to the quiz.js file in webgoat-container -> js
  */
-@RestController
+/* @RestController
 public class SqlInjectionQuiz extends AssignmentEndpoint {
 
   String[] solutions = {"Solution 4", "Solution 3", "Solution 2", "Solution 3", "Solution 4"};
@@ -84,4 +84,4 @@ public class SqlInjectionQuiz extends AssignmentEndpoint {
   public boolean[] getResults() {
     return this.guesses;
   }
-}
+} */

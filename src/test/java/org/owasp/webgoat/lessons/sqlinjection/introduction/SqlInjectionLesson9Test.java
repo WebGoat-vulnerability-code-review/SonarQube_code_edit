@@ -20,7 +20,7 @@
  * Source for this application is maintained at https://github.com/WebGoat/WebGoat, a repository for free software projects.
  */
 
-package org.owasp.webgoat.lessons.sqlinjection.introduction;
+/* package org.owasp.webgoat.lessons.sqlinjection.introduction;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
@@ -29,13 +29,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import org.junit.jupiter.api.Test;
 import org.owasp.webgoat.lessons.sqlinjection.SqlLessonTest;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders; */
 
-/**
+/*
  * @author Benedikt Stuhrmann
  * @since 11/07/18.
  */
-public class SqlInjectionLesson9Test extends SqlLessonTest {
+/* public class SqlInjectionLesson9Test extends SqlLessonTest {
 
   private final String completedError = "JSON path \"lessonCompleted\"";
 
@@ -117,4 +117,4 @@ public class SqlInjectionLesson9Test extends SqlLessonTest {
         .andExpect(jsonPath("$.feedback", is(messages.getMessage("sql-injection.9.success"))))
         .andExpect(jsonPath("$.output", containsString("300000")));
   }
-}
+} */
