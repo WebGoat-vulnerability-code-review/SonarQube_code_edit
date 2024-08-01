@@ -52,7 +52,7 @@ public class Assignment8 extends AssignmentEndpoint {
   }
 
   @GetMapping("/challenge/8/votes/")
-  public ResponseEntity<?> getVotes() {
+  public ResponseEntity getVotes() {
     return ResponseEntity.ok(
         votes.entrySet().stream()
             .collect(Collectors.toMap(e -> "" + e.getKey(), e -> e.getValue())));
