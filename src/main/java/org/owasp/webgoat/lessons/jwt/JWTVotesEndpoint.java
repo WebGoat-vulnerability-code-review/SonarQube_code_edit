@@ -170,7 +170,7 @@ public class JWTVotesEndpoint extends AssignmentEndpoint {
   @PostMapping(value = "/JWT/votings/{title}")
   @ResponseBody
   @ResponseStatus(HttpStatus.ACCEPTED)
-  public ResponseEntity<?> vote(
+  public ResponseEntity vote(
       @PathVariable String title,
       @CookieValue(value = "access_token", required = false) String accessToken) {
     if (StringUtils.isEmpty(accessToken)) {

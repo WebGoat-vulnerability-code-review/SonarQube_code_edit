@@ -37,6 +37,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SecurePasswordsAssignment extends AssignmentEndpoint {
 
+  private static final String CLOSE_BR = "</br>";
+  private static final String NBSP = " left;\">&nbsp;</div>" + CLOSE_BR;
+
   @PostMapping("SecurePasswords/assignment")
   @ResponseBody
   public AttackResult completed(@RequestParam String password) {
@@ -46,45 +49,46 @@ public class SecurePasswordsAssignment extends AssignmentEndpoint {
     df.setMaximumFractionDigits(340);
     Strength strength = zxcvbn.measure(password);
 
-    output.append("<b>Your Password: *******</b></br>");
-    output.append("<b>Length: </b>" + password.length() + "</br>");
+    output.append("<b>Your Password: *******</b>" + CLOSE_BR);
+    output.append("<b>Length: </b>" + password.length() + CLOSE_BR);
     output.append(
         "<b>Estimated guesses needed to crack your password: </b>"
             + df.format(strength.getGuesses())
             + "</br>");
     output.append(
-        "<div style=\"float: left;padding-right: 10px;\"><b>Score: </b>"
+        "<div style=\"float: left;padding-right: 10px;\"><b>Score: "
+            + CLOSE_BR
             + strength.getScore()
             + "/4 </div>");
     if (strength.getScore() <= 1) {
       output.append(
           "<div style=\"background-color:red;width: 200px;border-radius: 12px;float:"
-              + " left;\">&nbsp;</div></br>");
+              + NBSP);
     } else if (strength.getScore() <= 3) {
       output.append(
           "<div style=\"background-color:orange;width: 200px;border-radius: 12px;float:"
-              + " left;\">&nbsp;</div></br>");
+              + NBSP);
     } else {
       output.append(
           "<div style=\"background-color:green;width: 200px;border-radius: 12px;float:"
-              + " left;\">&nbsp;</div></br>");
+              + NBSP);
     }
     output.append(
         "<b>Estimated cracking time: </b>"
             + calculateTime(
                 (long) strength.getCrackTimeSeconds().getOnlineNoThrottling10perSecond())
-            + "</br>");
+            + CLOSE_BR);
     if (strength.getFeedback().getWarning().length() != 0)
-      output.append("<b>Warning: </b>" + strength.getFeedback().getWarning() + "</br>");
+      output.append("<b>Warning: " + CLOSE_BR + strength.getFeedback().getWarning() + CLOSE_BR);
     // possible feedback: https://github.com/dropbox/zxcvbn/blob/master/src/feedback.coffee
     // maybe ask user to try also weak passwords to see and understand feedback?
     if (strength.getFeedback().getSuggestions().size() != 0) {
-      output.append("<b>Suggestions:</b></br><ul>");
+      output.append("<b>Suggestions:</b>" + CLOSE_BR + "<ul>");
       for (String sug : strength.getFeedback().getSuggestions())
         output.append("<li>" + sug + "</li>");
-      output.append("</ul></br>");
+      output.append("</ul>" + CLOSE_BR);
     }
-    output.append("<b>Score: </b>" + strength.getScore() + "/4 </br>");
+    output.append("<b>Score: " + CLOSE_BR + strength.getScore() + "/4 " + CLOSE_BR);
 
     if (strength.getScore() >= 4)
       return success(this).feedback("securepassword-success").output(output.toString()).build();

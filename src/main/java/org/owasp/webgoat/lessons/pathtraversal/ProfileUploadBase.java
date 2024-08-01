@@ -85,7 +85,7 @@ public class ProfileUploadBase extends AssignmentEndpoint {
         .build();
   }
 
-  public ResponseEntity<?> getProfilePicture() {
+  public ResponseEntity getProfilePicture() {
     return ResponseEntity.ok()
         .contentType(MediaType.parseMediaType(MediaType.IMAGE_JPEG_VALUE))
         .body(getProfilePictureAsBase64());
