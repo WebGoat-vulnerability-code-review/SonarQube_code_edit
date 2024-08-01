@@ -35,10 +35,10 @@ public class SqlOnlyInputValidationOnKeywordsTest extends SqlLessonTest {
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.lessonCompleted", is(false)))
         .andExpect(
-           jsonPath(
-               "$.output",
-               containsString(
-                   "unexpected token: *<br> Your query was: SELECT * FROM user_data WHERE"
+            jsonPath(
+                "$.output",
+                containsString(
+                    "unexpected token: *<br> Your query was: SELECT * FROM user_data WHERE"
                         + " last_name ="
                         + " 'SMITH';\\\\\\/**\\\\\\/*\\\\\\/**\\\\\\/\\\\\\/**\\\\\\/USER_SYSTEM_DATA;--'")));
   }
