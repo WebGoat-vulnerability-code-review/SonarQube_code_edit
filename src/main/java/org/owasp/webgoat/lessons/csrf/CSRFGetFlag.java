@@ -37,8 +37,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CSRFGetFlag {
 
-  private static final String SCRF_GET_SUCCESS = "SCRF_GET_SUCCESS";
-  private static final String SUCCESS = "SUCCESS";
+  private static final String CSRF_GET_SUCCESS = "csrf-get-success";
+  private static final String SUCCESS = "success";
   private static final String MESSAGE = "message";
 
   @Autowired UserSessionData userSessionData;
@@ -59,16 +59,16 @@ public class CSRFGetFlag {
     if (referer.equals("NULL")) {
       if ("true".equals(req.getParameter("csrf"))) {
         Random random = new Random();
-        userSessionData.setValue(SCRF_GET_SUCCESS, random.nextInt(65536));
+        userSessionData.setValue(CSRF_GET_SUCCESS, random.nextInt(65536));
         response.put(SUCCESS, true);
         response.put(MESSAGE, pluginMessages.getMessage("csrf-get-null-referer.success"));
-        response.put("flag", userSessionData.getValue(SCRF_GET_SUCCESS));
+        response.put("flag", userSessionData.getValue(CSRF_GET_SUCCESS));
       } else {
         Random random = new Random();
-        userSessionData.setValue(SCRF_GET_SUCCESS, random.nextInt(65536));
+        userSessionData.setValue(CSRF_GET_SUCCESS, random.nextInt(65536));
         response.put(SUCCESS, true);
         response.put(MESSAGE, pluginMessages.getMessage("csrf-get-other-referer.success"));
-        response.put("flag", userSessionData.getValue(SCRF_GET_SUCCESS));
+        response.put("flag", userSessionData.getValue(CSRF_GET_SUCCESS));
       }
     } else if (refererArr[2].equals(host)) {
       response.put(SUCCESS, false);
@@ -76,10 +76,10 @@ public class CSRFGetFlag {
       response.put("flag", null);
     } else {
       Random random = new Random();
-      userSessionData.setValue(SCRF_GET_SUCCESS, random.nextInt(65536));
+      userSessionData.setValue(CSRF_GET_SUCCESS, random.nextInt(65536));
       response.put(SUCCESS, true);
       response.put(MESSAGE, pluginMessages.getMessage("csrf-get-other-referer.success"));
-      response.put("flag", userSessionData.getValue(SCRF_GET_SUCCESS));
+      response.put("flag", userSessionData.getValue(CSRF_GET_SUCCESS));
     }
 
     return response;
