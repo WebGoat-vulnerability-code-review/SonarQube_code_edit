@@ -61,6 +61,7 @@ public class JWTRefreshEndpoint extends AssignmentEndpoint {
   public static final String PASSWORD = "bm5nhSkxCXZkKRy4";
   private static final String JWT_PASSWORD = "bm5n3SkxCX4kKRy4";
   private static final List<String> validRefreshTokens = new ArrayList<>();
+  private static final String REFRESH_TOKEN = "refresh_token";
 
   @PostMapping(
       value = "/JWT/refresh/login",
@@ -92,7 +93,7 @@ public class JWTRefreshEndpoint extends AssignmentEndpoint {
     String refreshToken = RandomStringUtils.randomAlphabetic(20);
     validRefreshTokens.add(refreshToken);
     tokenJson.put("access_token", token);
-    tokenJson.put("refresh_token", refreshToken);
+    tokenJson.put(REFRESH_TOKEN, refreshToken);
     return tokenJson;
   }
 
@@ -136,10 +137,10 @@ public class JWTRefreshEndpoint extends AssignmentEndpoint {
       Jwt<Header, Claims> jwt =
           Jwts.parser().setSigningKey(JWT_PASSWORD).parse(token.replace("Bearer ", ""));
       user = (String) jwt.getBody().get("user");
-      refreshToken = (String) json.get("refresh_token");
+      refreshToken = (String) json.get(REFRESH_TOKEN);
     } catch (ExpiredJwtException e) {
       user = (String) e.getClaims().get("user");
-      refreshToken = (String) json.get("refresh_token");
+      refreshToken = (String) json.get(REFRESH_TOKEN);
     }
 
     if (user == null || refreshToken == null) {

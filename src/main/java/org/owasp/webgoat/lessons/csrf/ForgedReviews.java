@@ -53,7 +53,7 @@ public class ForgedReviews extends AssignmentEndpoint {
 
   private static final Map<String, List<Review>> userReviews = new HashMap<>();
   private static final List<Review> REVIEWS = new ArrayList<>();
-  private static final String weakAntiCSRF = "2aa14227b9a13d0bede0388a7fba9aa9";
+  private static final String WEAKANTICSRF = "2aa14227b9a13d0bede0388a7fba9aa9";
 
   static {
     REVIEWS.add(
@@ -103,7 +103,7 @@ public class ForgedReviews extends AssignmentEndpoint {
     reviews.add(review);
     userReviews.put(webSession.getUserName(), reviews);
     // short-circuit
-    if (validateReq == null || !validateReq.equals(weakAntiCSRF)) {
+    if (validateReq == null || !validateReq.equals(WEAKANTICSRF)) {
       return failed(this).feedback("csrf-you-forgot-something").build();
     }
     // we have the spoofed files
