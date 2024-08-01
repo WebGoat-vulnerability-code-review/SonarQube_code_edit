@@ -20,7 +20,7 @@
  * Source for this application is maintained at https://github.com/WebGoat/WebGoat, a repository for free software projects.
  */
 
-/* package org.owasp.webgoat.lessons.sqlinjection.introduction;
+package org.owasp.webgoat.lessons.sqlinjection.introduction;
 
 import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -51,4 +51,4 @@ public class SqlInjectionLesson6bTest extends SqlLessonTest {
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.lessonCompleted", is(false)));
   }
-} */
+}

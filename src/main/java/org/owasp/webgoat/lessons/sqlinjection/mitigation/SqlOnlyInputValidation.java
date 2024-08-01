@@ -20,7 +20,7 @@
  * Source for this application is maintained at https://github.com/WebGoat/WebGoat, a repository for free software projects.
  */
 
-/* package org.owasp.webgoat.lessons.sqlinjection.mitigation;
+package org.owasp.webgoat.lessons.sqlinjection.mitigation;
 
 import org.owasp.webgoat.container.assignments.AssignmentEndpoint;
 import org.owasp.webgoat.container.assignments.AssignmentHints;
@@ -56,4 +56,4 @@ public class SqlOnlyInputValidation extends AssignmentEndpoint {
         getClass().getSimpleName(),
         true);
   }
-} */
+}

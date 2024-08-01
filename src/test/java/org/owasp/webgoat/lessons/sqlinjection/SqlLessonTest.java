@@ -20,7 +20,7 @@
  * Source for this application is maintained at https://github.com/WebGoat/WebGoat, a repository for free software projects.
  */
 
-/* package org.owasp.webgoat.lessons.sqlinjection;
+package org.owasp.webgoat.lessons.sqlinjection;
 
 import static org.mockito.Mockito.when;
 
@@ -36,4 +36,4 @@ public class SqlLessonTest extends LessonTest {
     when(webSession.getCurrentLesson()).thenReturn(new SqlInjection());
     this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
   }
-} */
+}

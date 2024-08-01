@@ -20,7 +20,7 @@
  * Source for this application is maintained at https://github.com/WebGoat/WebGoat, a repository for free software projects.
  */
 
-/* package org.owasp.webgoat.lessons.sqlinjection.introduction;
+package org.owasp.webgoat.lessons.sqlinjection.introduction;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -125,4 +125,4 @@ public class SqlInjectionLesson10 extends AssignmentEndpoint {
       }
     }
   }
-} */
+}

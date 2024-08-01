@@ -20,7 +20,7 @@
  * Source for this application is maintained at https://github.com/WebGoat/WebGoat, a repository for free software projects.
  */
 
-/* package org.owasp.webgoat.lessons.sqlinjection.mitigation;
+package org.owasp.webgoat.lessons.sqlinjection.mitigation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,13 +33,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController; */
+import org.springframework.web.bind.annotation.RestController;
 
-/*
+/**
  * @author nbaars
  * @since 6/13/17.
  */
-/* @RestController
+@RestController
 @RequestMapping("SqlInjectionMitigations/servers")
 @Slf4j
 public class Servers {
@@ -90,4 +90,4 @@ public class Servers {
     }
     return servers;
   }
-} */
+}

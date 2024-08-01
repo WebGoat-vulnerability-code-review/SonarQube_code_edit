@@ -20,7 +20,7 @@
  * Source for this application is maintained at https://github.com/WebGoat/WebGoat, a repository for free software projects.
  */
 
-/* package org.owasp.webgoat.lessons.sqlinjection.mitigation;
+package org.owasp.webgoat.lessons.sqlinjection.mitigation;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -71,4 +71,4 @@ public class SqlInjectionLesson13 extends AssignmentEndpoint {
       return (failed(this).build());
     }
   }
-} */
+}

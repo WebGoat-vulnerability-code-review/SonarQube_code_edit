@@ -20,7 +20,7 @@
  * Source for this application is maintained at https://github.com/WebGoat/WebGoat, a repository for free software projects.
  */
 
-/* package org.owasp.webgoat.lessons.sqlinjection.introduction;
+package org.owasp.webgoat.lessons.sqlinjection.introduction;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
@@ -96,4 +96,4 @@ public class SqlInjectionLesson5aTest extends SqlLessonTest {
                     "malformed string: '1''<br> Your query was: SELECT * FROM user_data WHERE"
                         + " first_name = 'John' and last_name = 'Smith' OR '1' = '1''")));
   }
-} */
+}
