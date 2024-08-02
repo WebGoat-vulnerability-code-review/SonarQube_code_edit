@@ -54,7 +54,7 @@ public class SecurePasswordsAssignment extends AssignmentEndpoint {
     output.append(
         "<b>Estimated guesses needed to crack your password: </b>"
             + df.format(strength.getGuesses())
-            + "</br>");
+            + CLOSE_BR);
     output.append(
         "<div style=\"float: left;padding-right: 10px;\"><b>Score: "
             + CLOSE_BR
