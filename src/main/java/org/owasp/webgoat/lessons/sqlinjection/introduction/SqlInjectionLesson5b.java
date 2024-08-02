@@ -45,6 +45,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SqlInjectionLesson5b extends AssignmentEndpoint {
 
   private final LessonDataSource dataSource;
+  private static final String YOUR_QUERY = "<br> Your query was: ";
 
   public SqlInjectionLesson5b(LessonDataSource dataSource) {
     this.dataSource = dataSource;
@@ -74,7 +75,7 @@ public class SqlInjectionLesson5b extends AssignmentEndpoint {
                 "Could not parse: "
                     + login_count
                     + " to a number"
-                    + "<br> Your query was: "
+                    + YOUR_QUERY
                     + queryString.replace("?", login_count))
             .build();
       }
@@ -103,7 +104,7 @@ public class SqlInjectionLesson5b extends AssignmentEndpoint {
             return failed(this)
                 .output(
                     output.toString()
-                        + "<br> Your query was: "
+                        + YOUR_QUERY
                         + queryString.replace("?", login_count))
                 .build();
           }
@@ -118,7 +119,7 @@ public class SqlInjectionLesson5b extends AssignmentEndpoint {
 
         return failed(this)
             .output(
-                sqle.getMessage() + "<br> Your query was: " + queryString.replace("?", login_count))
+                sqle.getMessage() + YOUR_QUERY + queryString.replace("?", login_count))
             .build();
       }
     } catch (Exception e) {
@@ -127,7 +128,7 @@ public class SqlInjectionLesson5b extends AssignmentEndpoint {
               this.getClass().getName()
                   + " : "
                   + e.getMessage()
-                  + "<br> Your query was: "
+                  + YOUR_QUERY
                   + queryString.replace("?", login_count))
           .build();
     }

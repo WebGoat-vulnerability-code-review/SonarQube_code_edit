@@ -96,7 +96,7 @@ public class ProfileZipSlip extends ProfileUploadBase {
 
   @GetMapping("/PathTraversal/zip-slip/profile-image/{username}")
   @ResponseBody
-  public ResponseEntity<?> getProfilePicture(@PathVariable("username") String username) {
+  public ResponseEntity getProfilePicture(@PathVariable("username") String username) {
     return ResponseEntity.notFound().build();
   }
 }
