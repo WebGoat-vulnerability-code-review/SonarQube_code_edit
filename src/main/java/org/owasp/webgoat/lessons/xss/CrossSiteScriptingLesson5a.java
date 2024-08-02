@@ -48,7 +48,7 @@ public class CrossSiteScriptingLesson5a extends AssignmentEndpoint {
       Pattern.compile(
               ".*<script>(console\\.log|alert)\\(.*\\);?</script>.*", Pattern.CASE_INSENSITIVE)
           .asMatchPredicate();
-  private static final String FALSE  = "false";
+  private static final String FALSE = "false";
 
   @Autowired UserSessionData userSessionData;
 

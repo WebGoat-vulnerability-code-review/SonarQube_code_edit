@@ -102,10 +102,7 @@ public class SqlInjectionLesson5b extends AssignmentEndpoint {
                 .build();
           } else {
             return failed(this)
-                .output(
-                    output.toString()
-                        + YOUR_QUERY
-                        + queryString.replace("?", login_count))
+                .output(output.toString() + YOUR_QUERY + queryString.replace("?", login_count))
                 .build();
           }
 
@@ -118,8 +115,7 @@ public class SqlInjectionLesson5b extends AssignmentEndpoint {
       } catch (SQLException sqle) {
 
         return failed(this)
-            .output(
-                sqle.getMessage() + YOUR_QUERY + queryString.replace("?", login_count))
+            .output(sqle.getMessage() + YOUR_QUERY + queryString.replace("?", login_count))
             .build();
       }
     } catch (Exception e) {
